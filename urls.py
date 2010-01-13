@@ -15,3 +15,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
 )
+
+urlpatterns += patterns('django.views.generic.simple',
+    url(r'^$', 'direct_to_template', {'template': 'construct.html'}, name='under_construction'),
+    )
