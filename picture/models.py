@@ -3,10 +3,11 @@ from tagging.fields import TagField
 
 # Create your models here.
 class Picture(models.Model):
-    title = models.Charfield(max_lenght=255)
+    title = models.CharField(max_length=255)
     file = models.ImageField(upload_to="picture")
     is_visible = models.BooleanField(default=False)
     tags = TagField(help_text='Enter tags separated by ,')
+    creation_date = models.DateTimeField(auto_now_add=True)
 
     @models.permalink
     def get_absolute_url(self):
