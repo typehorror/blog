@@ -2,8 +2,17 @@ from django.shortcuts import get_object_or_404
 
 from common.shortcuts import render_response
 
-from models import Article
+from models import Article, FeaturedArticle
 
+def homepage(request):
+    """
+    Display some featured articles, most recent article 
+    and some tips.
+    """
+    featured = FeaturedArticle.objects.filter(is_visible=True).order('?')
+    articles = Article.objects.all().select_related().order_by(creation_date)[:4]
+    context = {'featured': featured,
+               'articles': articles}
 
 def article_view(request, article_id):
     """

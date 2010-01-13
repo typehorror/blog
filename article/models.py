@@ -31,6 +31,15 @@ class Article(models.Model):
     def get_absolute_url(self):
         return ('article.views.article_view', [self.pk])
 
+class FeaturedArticle(models.Model):
+    """
+    This record corresponds to the featured article actually display on the 
+    home page.
+    """
+    article = models.ForeignKey(Article, unique=True)
+    creation_date = models.DateTimeField(auto_now_add=True)
+    modification_date = models.DateTimeField(auto_now=True, auto_now_add=True)
+    is_visible = models.BooleanField(default=False)
 
 class Comment(models.Model):
     """
