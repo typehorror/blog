@@ -82,5 +82,6 @@ INSTALLED_APPS = (
     'common',
     'mailer',
     'tagging',
+    'article',
 )
 

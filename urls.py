@@ -5,8 +5,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Example:
-    # (r'^blog/', include('blog.foo.urls')),
+    (r'^article/', include('article.urls')),
 
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
     # to INSTALLED_APPS to enable admin documentation:
