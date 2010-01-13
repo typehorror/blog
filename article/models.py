@@ -25,6 +25,7 @@ class Article(models.Model):
     is_visible = models.BooleanField(default=False)
     creation_date = models.DateTimeField(auto_now_add=True)
     modification_date = models.DateTimeField(auto_now=True, auto_now_add=True)
+    picture = models.ForeignKey('picture.Picture', related_name='articles')
 
     @models.permalink
     def get_absolute_url(self):
