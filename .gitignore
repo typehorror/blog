@@ -1,0 +1,6 @@
+*.pyc
+*.log
+settings_local.py
+media
+src/*
+*.swp
