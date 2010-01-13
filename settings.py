@@ -83,5 +83,6 @@ INSTALLED_APPS = (
     'mailer',
     'tagging',
     'article',
+    'picture',
 )
 
