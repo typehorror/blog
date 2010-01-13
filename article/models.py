@@ -31,6 +31,9 @@ class Article(models.Model):
     def get_absolute_url(self):
         return ('article.views.article_view', [self.pk])
 
+    def __unicode__(self):
+        return u'%s' % self.title
+
 class FeaturedArticle(models.Model):
     """
     This record corresponds to the featured article actually display on the 

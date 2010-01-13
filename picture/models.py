@@ -13,3 +13,5 @@ class Picture(models.Model):
     def get_absolute_url(self):
         return ('picture.views.picture_view', [self.pk])
 
+    def __unicode__(self):
+        return u'%s' % self.title
