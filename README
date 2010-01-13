@@ -1,2 +1,24 @@
 This is my personal Blog. It runs on http://www.debrice.com
 
+
+Dependancies you'll need to install
+------------------------------------
+
+Django DB Log : 
+it logs all the exception in your DB and informs you by email
+available at (git clone) git://github.com/dcramer/django-db-log.git
+
+
+Django Mailer : 
+It manage your email and stores them in the DB
+available at (git clone) git://github.com/jtauber/django-mailer.git
+
+
+SORL:
+this library makes it easy to manage thumbnails
+available at (hg clone) https://sorl-thumbnail.googlecode.com/hg/
+
+
+django tagging:
+Tags your data to group them by theme.
+available at (svn checkout) http://django-tagging.googlecode.com/svn/trunk/

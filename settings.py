@@ -80,11 +80,7 @@ INSTALLED_APPS = (
     'sorl.thumbnail',
     'common',
     'chunks',
-    'contact',
     'mailer',
-    'product',
-    'south',
     'tagging',
-    'template',
 )
 
