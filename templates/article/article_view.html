@@ -7,17 +7,26 @@
 {% block main %}
     <div class="post">
 			
-					<h2><a href="index.html">{{ article.title }}</a></h2>
-					
-					<p class="post-info">Posted by <a href="index.html">{{ article.author }}</a> | Filed under 
+					<h2>{{ article.title }}</h2>
+					<p class="post-info">Posted by <a href="{% url about_me %}">{{ article.author }}</a> | Filed under 
                     {% tags_for_object article as tags %}
                         {% for tag in tags %} <a href="#">{{tag}}</a> {% if not forloop.last %}, {% endif%}{% endfor %}
                     </p>
 
 				
+					<p class="postmeta">		
+						<a href="#comments" class="comments">Comment{{ article.comments.count|pluralize }} ({{ article.comments.count }})</a> |		
+						<span class="date">{{ article.creation_date|date:"F d, Y" }}</span> 
+                        {% if user.is_staff %}
+                        |		
+						<a href="{% url admin:article_article_change article.id %}" class="edit">Edit</a> 
+                        {% endif %}
+					</p>
+					
 					<div class="image-section">
                     {% thumbnail article.picture.file 530x200 crop upscale as thumb %}
                     <img src="{{ thumb }}" width="{{ thumb.width }}" height="{{ thumb.height }}"  alt="featured" />
+                    <div style="display: block;text-align:right;font-style:italic;">photo: <a href="{{ article.picture.get_absolute_url }}">{{ article.picture.title }}</a>
          		</div>					
 					
 					{{ article.body|safe }}
@@ -27,14 +36,6 @@
 						{% for tag in tags %} <a href="#">{{tag}}</a> {% if not forloop.last %}, {% endif%}{% endfor %}
 					</p>
 				
-					<p class="postmeta">		
-						<a href="index.html" class="comments">Comment{{ article.comments.count|pluralize }} ({{ article.comments.count }})</a> |		
-						<span class="date">{% now "F d, Y" %}</span> 
-                        {% if user.is_staff %}
-                        |		
-						<a href="{% url admin:article_article_change article.id %}" class="edit">Edit</a> 
-                        {% endif %}
-					</p>
 			
 					<h3 id="comments">{{ article.comments.count }} Response{{ article.comments.count|pluralize }}</h3>
 					
