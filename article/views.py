@@ -1,9 +1,12 @@
 from django.shortcuts import get_object_or_404
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
 
 from common.shortcuts import render_response
 from common.utils import paginate
 
 from models import Article, FeaturedArticle
+from forms import CommentForm
 
 def homepage(request):
     """
@@ -34,6 +37,20 @@ def article_view(request, article_id):
     """
     article = get_object_or_404(Article, pk=article_id, is_visible=True)
     comments = article.comments.select_related().exclude(status='censored')
+
     context = {'article': article,
                'current':'blog'}
+
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.article = article
+            comment.save()
+            return HttpResponseRedirect(reverse('article_view', args=[article.id,]))
+        else:
+            context['form']=form
+    else:
+        context['form']=CommentForm()
+
     return render_response(request, 'article/article_view.html', context)

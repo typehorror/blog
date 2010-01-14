@@ -86,5 +86,6 @@ INSTALLED_APPS = (
     'picture',
     'tip',
     'contact',
+    'gravatar',
 )
 

@@ -15,7 +15,7 @@
         <a name="TemplateInfo"></a>
         
         <div class="image-block">
-          <a href="index.html" title="">
+          <a href="{{ featured.article.get_absolute_url }}" title="">
           {% thumbnail featured.article.picture.file 350x250 crop upscale as thumb %}
           <img src="{{ thumb }}" width="{{ thumb.width }}" height="{{ thumb.height }}"  alt="featured" />
           </a>
@@ -23,9 +23,9 @@
         
         <div class="text-block">
         
-            <h2><a href="index.html">{{ featured.article.title }}</a></h2>
+            <h2><a href="{{ featured.article.get_absolute_url }}">{{ featured.article.title }}</a></h2>
         
-            <p class="post-info">Posted by <a href="index.html">{{ featured.article.author }}</a> | Filed under 
+            <p class="post-info">Posted by <a href="{{ featured.article.get_absolute_url }}">{{ featured.article.author }}</a> | Filed under 
             {% tags_for_object featured.article as tags %}
                 {% for tag in tags %} <a href="#">{{tag}}</a> {% if not forloop.last %}, {% endif%}
             {% endfor %}
@@ -60,7 +60,7 @@
 					<div class="blk-top">
 					
 						<h4><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h4>	
-						<p><span class="datetime">{{ article.modification_date|date:"F d, Y" }}</span><a href="index.html" class="comment">{{ article.comments.count }} Comment{{ article.comments.count|pluralize }}</a></p>
+						<p><span class="datetime">{{ article.modification_date|date:"F d, Y" }}</span><a href="{{ featured.article.get_absolute_url }}#comments" class="comment">{{ article.comments.count }} Comment{{ article.comments.count|pluralize }}</a></p>
 						
 					</div>						
 					
