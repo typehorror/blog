@@ -9,10 +9,14 @@ def homepage(request):
     Display some featured articles, most recent article 
     and some tips.
     """
-    featured = FeaturedArticle.objects.filter(is_visible=True).order('?')
-    articles = Article.objects.all().select_related().order_by(creation_date)[:4]
+    featured = FeaturedArticle.objects.filter(is_visible=True).order_by('?')
+    if len(featured):
+        featured = featured[0]
+        
+    articles = Article.objects.all().select_related().order_by('-creation_date')[:4]
     context = {'featured': featured,
                'articles': articles}
+    return render_response(request, 'homepage.html', context)
 
 def article_view(request, article_id):
     """

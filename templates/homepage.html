@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+
+{% load thumbnail %}
+{% block featured %}
+{% load tagging_tags %}
+{% if featured %}
+<!-- featured -->		
+<div id="featured">			
+
+    <div id="featured-block" class="clear">
+        
+        <div id="featured-ribbon"></div>	
+            
+        <a name="TemplateInfo"></a>
+        
+        <div class="image-block">
+          <a href="index.html" title="">
+          {% thumbnail featured.article.picture.file 350x250 crop upscale as thumb %}
+          <img src="{{ thumb }}" width="{{ thumb.width }}" height="{{ thumb.height }}"  alt="featured" />
+          </a>
+     </div>			
+        
+        <div class="text-block">
+        
+            <h2><a href="index.html">{{ featured.article.title }}</a></h2>
+        
+            <p class="post-info">Posted by <a href="index.html">{{ featured.article.author }}</a> | Filed under 
+            {% tags_for_object featured.article as tags %}
+                {% for tag in tags %} <a href="#">{{tag}}</a> {% if not forloop.last %}, {% endif%}
+            {% endfor %}
+            </p>
+            
+            <p>{{ featured.article.preview|safe }}
+            </p>
+            
+            <p>Good luck and I hope you find my free templates useful!</p>
+        
+            <p><a href="{{ featured.article.get_absolute_url }}" class="more-link">Read More</a></p>				
+                            
+        </div>				
+    
+    </div>		
+
+<!-- /featured -->
+</div>	
+{% endif %}
+{% endblock %}
+
+			{% block main %}
+		
+				<h3>Recent Articles</h3>
+				
+				<div class="block odd">
+				
+					<a title="" href="index.html"><img src="images/thumb-1.jpg" class="thumbnail" alt="img" width="240px" height="100px"/></a>
+				
+					<div class="blk-top">
+					
+						<h4><a href="index.html">Aliquam Risus Justo Lorem Ipsum Dolor Sit Amet</a></h4>	
+						<p><span class="datetime">August 27, 2009</span><a href="index.html" class="comment">2 Comments</a></p>
+						
+					</div>						
+					
+					<div class="blk-content">
+						
+						<p>
+						Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. 
+						Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu 
+						posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum, dui pede condimentum 
+						odio, ac blandit ante orci ut diam. Cras fringilla magna. Phasellus suscipit, leo a pharetra 
+						condimentum, lorem tellus eleifend magna, eget fringilla velit magna id neque. 				
+						</p>					
+								
+						<p><a class="more" href="index.html">continue reading &raquo;</a></p>
+					
+					</div>
+				
+				</div>
+				
+				<div class="block even">
+				
+					<a title="" href="index.html"><img src="images/thumb-2.jpg" class="thumbnail" alt="img" width="240px" height="100px"/></a>
+				
+					<div class="blk-top">
+					
+						<h4><a href="index.html">Aliquam Risus Justo</a></h4>	
+						<p><span class="datetime">August 26, 2009</span> <a href="index.html" class="comment">2 Comments</a></p>
+						
+					</div>						
+					
+					<div class="blk-content">
+						
+						<p>
+						Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. 
+						Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu 
+						posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum, dui pede condimentum 
+						odio, ac blandit ante orci ut diam. Cras fringilla magna. Phasellus suscipit, leo a pharetra 
+						condimentum, lorem tellus eleifend magna, eget fringilla velit magna id neque. 	
+						
+						<a class="more" href="index.html">continue reading &raquo;</a>			
+						</p>
+						
+						<p></p>
+					
+					</div>
+				
+				</div>
+				
+				<div class="fix"></div>
+						
+				<div class="block odd">
+				
+					<a title="" href="index.html"><img src="images/thumb-3.jpg" class="thumbnail" alt="img" width="240px" height="100px"/></a>
+				
+					<div class="blk-top">
+					
+						<h4><a href="index.html">Justo Lorem Ipsum Dolor Sit Amet</a></h4>	
+						<p><span class="datetime">August 26, 2009</span> <a href="index.html" class="comment">2 Comments</a></p>
+						
+					</div>						
+					
+					<div class="blk-content">
+						
+						<p>
+						Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. 
+						Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu 
+						posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum, dui pede condimentum 
+						odio, ac blandit ante orci ut diam. Cras fringilla magna. Phasellus suscipit, leo a pharetra 
+						condimentum, lorem tellus eleifend magna, eget fringilla velit magna id neque. 				
+						</p>
+								
+						<p><a class="more" href="index.html">continue reading &raquo;</a></p>
+					
+					</div>
+				
+				</div>
+				
+				<div class="block even">
+				
+					<a title="" href="index.html"><img src="images/thumb-4.jpg" class="thumbnail" alt="img" width="240px" height="100px"/></a>
+				
+					<div class="blk-top">
+					
+						<h4><a href="index.html">Aliquam Risus Justo</a></h4>	
+						<p><span class="datetime">August 25, 2009</span> <a href="index.html" class="comment">2 Comments</a></p>
+						
+					</div>						
+					
+					<div class="blk-content">
+						
+						<p>
+						Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. 
+						Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu 
+						posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum, dui pede condimentum 
+						odio, ac blandit ante orci ut diam. Cras fringilla magna. Phasellus suscipit, leo a pharetra 
+						condimentum, lorem tellus eleifend magna, eget fringilla velit magna id neque. 				
+						</p>
+								
+						<p><a class="more" href="index.html">continue reading &raquo;</a></p>
+					
+					</div>
+				
+				</div>
+				
+				<div class="fix"></div>			
+			
+		    {% endblock main %}
