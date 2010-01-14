@@ -29,8 +29,11 @@
 				
 					<p class="postmeta">		
 						<a href="index.html" class="comments">Comment{{ article.comments.count|pluralize }} ({{ article.comments.count }})</a> |		
-						<span class="date">August 27, 2009</span> |		
-						<a href="index.html" class="edit">Edit</a> 
+						<span class="date">{% now "F d, Y" %}</span> 
+                        {% if user.is_staff %}
+                        |		
+						<a href="{% url admin:article_article_change article.id %}" class="edit">Edit</a> 
+                        {% endif %}
 					</p>
 			
 					<h3 id="comments">{{ article.comments.count }} Response{{ article.comments.count|pluralize }}</h3>
