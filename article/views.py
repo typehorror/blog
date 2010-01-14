@@ -17,7 +17,7 @@ def homepage(request):
     if len(featured):
         featured = featured[0]
         
-    articles = Article.objects.all().select_related().order_by('-creation_date')[:4]
+    articles = Article.objects.filter(is_visible=True).select_related().order_by('-creation_date')[:4]
     context = {'current': 'home',
                'featured': featured,
                'articles': articles}
@@ -39,7 +39,7 @@ def article_view(request, article_id):
     comments = article.comments.select_related().exclude(status='censored')
 
     context = {'article': article,
-               'current':'blog'}
+               'current':'home'}
 
     if request.method == "POST":
         form = CommentForm(request.POST)
