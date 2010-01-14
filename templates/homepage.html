@@ -67,11 +67,7 @@
 					<div class="blk-content">
 						
 						<p>
-						Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. 
-						Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu 
-						posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum, dui pede condimentum 
-						odio, ac blandit ante orci ut diam. Cras fringilla magna. Phasellus suscipit, leo a pharetra 
-						condimentum, lorem tellus eleifend magna, eget fringilla velit magna id neque. 				
+						{{ article.preview }}
 						</p>					
 								
 						<p><a class="more" href="{{ article.get_absolute_url }}">continue reading &raquo;</a></p>
@@ -79,7 +75,7 @@
 					</div>
 				
 				</div>
-				{% endfor %}				
 				{% cycle " " "<div class=\"fix\"></div>" %}		
+				{% endfor %}				
 			
 		    {% endblock main %}

@@ -1,24 +1,9 @@
 from django.shortcuts import get_object_or_404
-from django.core.paginator import Paginator, InvalidPage, EmptyPage
 
 from common.shortcuts import render_response
+from common.utils import paginate
 
 from models import Article, FeaturedArticle
-
-def paginate(records, request):
-    page = request.GET.get('page', '1')
-    paginator = Paginator(records, 6)
- 
-    try:
-        page = int(page)
-    except ValueError:
-        page = 1
- 
-    try:
-        records = paginator.page(page)
-    except (EmptyPage, InvalidPage):
-        records = paginator.page(paginator.num_pages)
-    return records
 
 def homepage(request):
     """
@@ -37,7 +22,6 @@ def homepage(request):
 
 def article_archive_view(request):
     articles = Article.objects.filter(is_visible=True).order_by("-modification_date")
-
     articles = paginate(articles, request)
     context = {'articles': articles,
                'current':'archive'}

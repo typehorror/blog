@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
+{% load thumbnail %}
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
@@ -44,7 +44,7 @@ if(typeof jQuery == 'function'){
 			<ul>
 				<li {% ifequal current "home" %}id="current"{% endifequal %}><a href="{% url homepage %}">Home</a></li>
 				<li {% ifequal current "tips" %}id="current"{% endifequal %}><a href="#">Tips</a></li>
-				<li {% ifequal current "photos" %}id="current"{% endifequal %}><a href="#">Photos</a></li>
+				<li {% ifequal current "photos" %}id="current"{% endifequal %}><a href="{% url pictures_view %}">Photos</a></li>
 				<li {% ifequal current "blog" %}id="current"{% endifequal %}><a href="#">Blog</a></li>
 				<li {% ifequal current "archive" %}id="current"{% endifequal %}><a href="{% url article_archive_view %}">Archive</a></li>
 				<li {% ifequal current "contact" %}id="current"{% endifequal %}><a href="#">Contact</a></li>
@@ -111,14 +111,10 @@ if(typeof jQuery == 'function'){
 				<h3>Image Gallery </h3>					
 				
 				<p class="thumbs">
-					<a href="index.html"><img src="images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
-					<a href="index.html"><img src="images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
-					<a href="index.html"><img src="images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
-					<a href="index.html"><img src="images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
-					<a href="index.html"><img src="images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
-					<a href="index.html"><img src="images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>	
-					<a href="index.html"><img src="images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
-					<a href="index.html"><img src="images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>				
+				    {% for thumb in thumbs %}
+                    {% thumbnail thumb.file 40x40 crop upscale as thumbnail %}
+					<a title="{{ thumb.title }}" href="{{ thumb.get_absolute_url }}"><img src="{{ thumbnail }}" width="{{ thumbnail.width }}" height="{{ thumbnail.height }}" alt="{{ thumb.title }}" /></a>
+					{% endfor %}
 				</p>					
 				
 			{% endblock sidebar %}

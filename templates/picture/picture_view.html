@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% load thumbnail %}
+{% load tagging_tags %}
+
+{% block main %}
+    <div class="post">
+        <h2>{{ picture.title }}</h2>
+					<p class="post-info">Posted by <a href="index.html">{{ picture.author }}</a> | Filed under 
+                    {% tags_for_object picture as tags %}
+                        {% for tag in tags %} <a href="#">{{tag}}</a> {% if not forloop.last %}, {% endif%}{% endfor %}
+                    </p>
+          {% thumbnail picture.file 560x1000 upscale as thumb %}
+          <img src="{{ thumb }}" width="{{ thumb.width }}" height="{{ thumb.height }}"  alt="featured" />
+    </div>
+{% endblock main %}

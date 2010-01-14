@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% load thumbnail %}
+{% load tagging_tags %}
+
+{% block main %}
+    <div class="navigation clear">
+    {% if pictures.has_next %}
+        <div><a href="?{{url_parameters}}&page={{ pictures.next_page_number }}" >&laquo; Older Entries </a></div>												
+    {% endif %}
+    {% if pictures.has_previous %}
+        <div><a href="?{{url_parameters}}&page={{ pictures.previous_page_number }}" >Newer Entries &raquo;</a></div>
+    {% endif %}
+    </div>
+    {% for picture in pictures.object_list %}
+    <div class="block {% cycle "odd" "even" %}">
+        <div class="blk-top">
+        
+            <h4><a href="{{ picture.get_absolute_url }}">{{ picture.title }}</a></h4>	
+            <p><span class="datetime">{{ picture.creation_date|date:"F d, Y" }}</span></p>
+            
+        </div>						
+        <a title="{{ picture.title }}" href="{{ picture.get_absolute_url }}">
+        {% thumbnail picture.file 240x100 crop upscale as thumb %}
+        <img src="{{ thumb }}" width="{{ thumb.width }}" height="{{ thumb.height }}"  alt="{{ picture.title }}" />
+        </a>
+    
+                        
+    {% cycle " " "<div class=\"fix\"></div>" %}		
+    </div>
+    {% endfor %}				
+
+    <div class="navigation clear">
+    {% if pictures.has_next %}
+        <div><a href="?{{url_parameters}}&page={{ pictures.next_page_number }}" >&laquo; Older Entries </a></div>												
+    {% endif %}
+    {% if pictures.has_previous %}
+        <div><a href="?{{url_parameters}}&page={{ pictures.previous_page_number }}" >Newer Entries &raquo;</a></div>
+    {% endif %}
+    </div>
+
+{% endblock main %}
