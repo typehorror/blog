@@ -42,12 +42,13 @@ if(typeof jQuery == 'function'){
 		
 		<div  id="nav">
 			<ul>
-				<li id="current"><a href="{% url homepage %}">Home</a></li>
-				<li><a href="#">Tips</a></li>
-				<li><a href="#">Photos</a></li>
-				<li><a href="#">Archive</a></li>
-				<li><a href="#">Contact</a></li>
-				<li><a href="#">About me</a></li>		
+				<li {% ifequal current "home" %}id="current"{% endifequal %}><a href="{% url homepage %}">Home</a></li>
+				<li {% ifequal current "tips" %}id="current"{% endifequal %}><a href="#">Tips</a></li>
+				<li {% ifequal current "photos" %}id="current"{% endifequal %}><a href="#">Photos</a></li>
+				<li {% ifequal current "blog" %}id="current"{% endifequal %}><a href="#">Blog</a></li>
+				<li {% ifequal current "archive" %}id="current"{% endifequal %}><a href="{% url article_archive_view %}">Archive</a></li>
+				<li {% ifequal current "contact" %}id="current"{% endifequal %}><a href="#">Contact</a></li>
+				<li {% ifequal current "about" %}id="current"{% endifequal %}><a href="#">About me</a></li>		
 			</ul>		
 		</div>		
 		
@@ -224,7 +225,7 @@ if(typeof jQuery == 'function'){
 	
 			<div class="bottom-left">
 				<p>
-				&copy; 2009 <strong>Copyright Info Here</strong>&nbsp; &nbsp; &nbsp;
+				&copy; 2010 <strong>Copyright Brice Leroy</strong>&nbsp; &nbsp; &nbsp;
 				Design by: <a href="http://www.styleshout.com/">styleshout</a> 			
 				</p>
 			</div>		
@@ -246,6 +247,14 @@ if(typeof jQuery == 'function'){
 
 <!-- /footer -->
 </div>
-
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-6379814-5");
+pageTracker._trackPageview();
+} catch(err) {}</script>
 </body>
 </html>

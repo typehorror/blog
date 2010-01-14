@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 
 {% load thumbnail %}
-{% block featured %}
 {% load tagging_tags %}
+
+{% block featured %}
 {% if featured %}
 <!-- featured -->		
 <div id="featured">			
@@ -49,15 +50,17 @@
 			{% block main %}
 		
 				<h3>Recent Articles</h3>
-				
-				<div class="block odd">
-				
-					<a title="" href="index.html"><img src="images/thumb-1.jpg" class="thumbnail" alt="img" width="240px" height="100px"/></a>
+				{% for article in articles %}
+				<div class="block {% cycle "odd" "even" %}">
+					<a title="" href="{{ article.get_absolute_url }}">
+                    {% thumbnail article.picture.file 240x100 crop upscale as thumb %}
+                    <img src="{{ thumb }}" width="{{ thumb.width }}" height="{{ thumb.height }}"  alt="featured" />
+                    </a>
 				
 					<div class="blk-top">
 					
-						<h4><a href="index.html">Aliquam Risus Justo Lorem Ipsum Dolor Sit Amet</a></h4>	
-						<p><span class="datetime">August 27, 2009</span><a href="index.html" class="comment">2 Comments</a></p>
+						<h4><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h4>	
+						<p><span class="datetime">{{ article.modification_date|date:"F d, Y" }}</span><a href="index.html" class="comment">{{ article.comments.count }} Comment{{ article.comments.count|pluralize }}</a></p>
 						
 					</div>						
 					
@@ -71,97 +74,12 @@
 						condimentum, lorem tellus eleifend magna, eget fringilla velit magna id neque. 				
 						</p>					
 								
-						<p><a class="more" href="index.html">continue reading &raquo;</a></p>
+						<p><a class="more" href="{{ article.get_absolute_url }}">continue reading &raquo;</a></p>
 					
 					</div>
 				
 				</div>
-				
-				<div class="block even">
-				
-					<a title="" href="index.html"><img src="images/thumb-2.jpg" class="thumbnail" alt="img" width="240px" height="100px"/></a>
-				
-					<div class="blk-top">
-					
-						<h4><a href="index.html">Aliquam Risus Justo</a></h4>	
-						<p><span class="datetime">August 26, 2009</span> <a href="index.html" class="comment">2 Comments</a></p>
-						
-					</div>						
-					
-					<div class="blk-content">
-						
-						<p>
-						Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. 
-						Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu 
-						posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum, dui pede condimentum 
-						odio, ac blandit ante orci ut diam. Cras fringilla magna. Phasellus suscipit, leo a pharetra 
-						condimentum, lorem tellus eleifend magna, eget fringilla velit magna id neque. 	
-						
-						<a class="more" href="index.html">continue reading &raquo;</a>			
-						</p>
-						
-						<p></p>
-					
-					</div>
-				
-				</div>
-				
-				<div class="fix"></div>
-						
-				<div class="block odd">
-				
-					<a title="" href="index.html"><img src="images/thumb-3.jpg" class="thumbnail" alt="img" width="240px" height="100px"/></a>
-				
-					<div class="blk-top">
-					
-						<h4><a href="index.html">Justo Lorem Ipsum Dolor Sit Amet</a></h4>	
-						<p><span class="datetime">August 26, 2009</span> <a href="index.html" class="comment">2 Comments</a></p>
-						
-					</div>						
-					
-					<div class="blk-content">
-						
-						<p>
-						Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. 
-						Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu 
-						posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum, dui pede condimentum 
-						odio, ac blandit ante orci ut diam. Cras fringilla magna. Phasellus suscipit, leo a pharetra 
-						condimentum, lorem tellus eleifend magna, eget fringilla velit magna id neque. 				
-						</p>
-								
-						<p><a class="more" href="index.html">continue reading &raquo;</a></p>
-					
-					</div>
-				
-				</div>
-				
-				<div class="block even">
-				
-					<a title="" href="index.html"><img src="images/thumb-4.jpg" class="thumbnail" alt="img" width="240px" height="100px"/></a>
-				
-					<div class="blk-top">
-					
-						<h4><a href="index.html">Aliquam Risus Justo</a></h4>	
-						<p><span class="datetime">August 25, 2009</span> <a href="index.html" class="comment">2 Comments</a></p>
-						
-					</div>						
-					
-					<div class="blk-content">
-						
-						<p>
-						Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. 
-						Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu 
-						posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum, dui pede condimentum 
-						odio, ac blandit ante orci ut diam. Cras fringilla magna. Phasellus suscipit, leo a pharetra 
-						condimentum, lorem tellus eleifend magna, eget fringilla velit magna id neque. 				
-						</p>
-								
-						<p><a class="more" href="index.html">continue reading &raquo;</a></p>
-					
-					</div>
-				
-				</div>
-				
-				<div class="fix"></div>			
+				{% endfor %}				
+				{% cycle " " "<div class=\"fix\"></div>" %}		
 			
 		    {% endblock main %}
