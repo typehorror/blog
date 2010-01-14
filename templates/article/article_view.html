@@ -26,7 +26,7 @@
 					<div class="image-section">
                     {% thumbnail article.picture.file 530x200 crop upscale as thumb %}
                     <img src="{{ thumb }}" width="{{ thumb.width }}" height="{{ thumb.height }}"  alt="featured" />
-                    <div style="display: block;text-align:right;font-style:italic;">photo: <a href="{{ article.picture.get_absolute_url }}">{{ article.picture.title }}</a>
+                    <div style="display: block;text-align:right;font-style:italic;">photo: <a href="{{ article.picture.get_absolute_url }}">{{ article.picture.title }}</a></div>
          		</div>					
 					
 					{{ article.body|safe }}

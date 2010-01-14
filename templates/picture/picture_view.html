@@ -12,10 +12,17 @@
                     </p>
           {% thumbnail picture.file 560x1000 upscale as thumb %}
           <img src="{{ thumb }}" width="{{ thumb.width }}" height="{{ thumb.height }}"  alt="featured" />
+            {% if user.is_staff %}
+                <div style="display: block;text-align:right;font-style:italic;">
+                <a href="{% url admin:picture_picture_change picture.id %}" class="edit">Edit</a> 
+                </div>
+            {% endif %}
+        {% if picture.body %}
         <blockquote>
         <p>
         {{ picture.body }}
         <p>
         </blockquote>
+        {% endif %}
     </div>
 {% endblock main %}
