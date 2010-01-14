@@ -789,3 +789,17 @@ p.thumbs {
 	content: " "; 
 }
 
+.about_me h3{
+    border-bottom: 1px solid #29201C;
+}
+
+.about_me h4{
+    font-size:1.1em; 
+    margin-top: 2em;
+}
+
+.about_me h4 span{
+    color: #6F892C;
+    font-size: .9em;
+    float: right;
+}

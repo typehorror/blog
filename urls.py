@@ -18,4 +18,5 @@ urlpatterns = patterns('',
 
 urlpatterns += patterns('django.views.generic.simple',
     url(r'^$', 'direct_to_template', {'template': 'construct.html'}, name='under_construction'),
+    url(r'^about_me/$', 'direct_to_template', {'template': 'about_me.html', 'extra_context':{'current': 'about'}}, name='about_me'),
     )

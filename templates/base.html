@@ -48,7 +48,7 @@ if(typeof jQuery == 'function'){
 				<li {% ifequal current "blog" %}id="current"{% endifequal %}><a href="#">Blog</a></li>
 				<li {% ifequal current "archive" %}id="current"{% endifequal %}><a href="{% url article_archive_view %}">Archive</a></li>
 				<li {% ifequal current "contact" %}id="current"{% endifequal %}><a href="#">Contact</a></li>
-				<li {% ifequal current "about" %}id="current"{% endifequal %}><a href="#">About me</a></li>		
+				<li {% ifequal current "about" %}id="current"{% endifequal %}><a href="{% url about_me %}">About me</a></li>		
 			</ul>		
 		</div>		
 		

@@ -19,7 +19,7 @@
           {% thumbnail featured.article.picture.file 350x250 crop upscale as thumb %}
           <img src="{{ thumb }}" width="{{ thumb.width }}" height="{{ thumb.height }}"  alt="featured" />
           </a>
-     </div>			
+        </div>			
         
         <div class="text-block">
         
@@ -67,7 +67,7 @@
 					<div class="blk-content">
 						
 						<p>
-						{{ article.preview }}
+						{{ article.preview|safe }}
 						</p>					
 								
 						<p><a class="more" href="{{ article.get_absolute_url }}">continue reading &raquo;</a></p>
