@@ -84,5 +84,6 @@ INSTALLED_APPS = (
     'tagging',
     'article',
     'picture',
+    'tip',
 )
 

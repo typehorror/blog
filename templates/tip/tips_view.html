@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% load thumbnail %}
+{% load tagging_tags %}
+
+{% block main %}
+					<h2>Tips</h2>
+					<div class="navigation clear">
+                    {% if tips.has_previous %}
+						<div><a href="?{{url_parameters}}&page={{ tips.previous_page_number }}" >Newer Tips &raquo;</a></div>
+			        {% endif %}
+                    {% if tips.has_next %}
+						<div><a href="?{{url_parameters}}&page={{ tips.next_page_number }}" >&laquo; Older Tips </a></div>												
+			        {% endif %}
+					</div>
+					
+					<ul class="archive">
+					{% for tip in tips.object_list %}
+						<li {% cycle "" "style=\"background-color: #2F2018;\"" %}>
+							<div class="post-title"><strong style="color:white; font-size: 1.2em;">{{ tip.title }}.</strong></div>
+                            {% tags_for_object tip as tags %}
+                            
+
+							<div class="post-details">Posted on <a href="#">{{ tip.modification_date|date:"F d, Y" }}</a> | Filed under {% for tag in tags %} <a href="#">{{tag}}</a> {% if not forloop.last %}, {% endif%}{% endfor %}</div>
+						    <p>
+						        {{ tip.body }}
+						    </p>
+						</li>
+				    {% endfor %}
+						
+					</ul>			
+					
+					<div class="navigation clear">						
+                    {% if tips.has_previous %}
+						<div><a href="?{{url_parameters}}&page={{ tips.previous_page_number }}" >Newer tips &raquo;</a></div>
+			        {% endif %}
+                    {% if tips.has_next %}
+						<div><a href="?{{url_parameters}}&page={{ tips.next_page_number }}" >&laquo; Older tips </a></div>												
+			        {% endif %}
+					</div>		
+
+{% endblock %}

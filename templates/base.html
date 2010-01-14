@@ -43,7 +43,7 @@ if(typeof jQuery == 'function'){
 		<div  id="nav">
 			<ul>
 				<li {% ifequal current "home" %}id="current"{% endifequal %}><a href="{% url homepage %}">Home</a></li>
-				<li {% ifequal current "tips" %}id="current"{% endifequal %}><a href="#">Tips</a></li>
+				<li {% ifequal current "tips" %}id="current"{% endifequal %}><a href="{% url tips_view %}">Tips</a></li>
 				<li {% ifequal current "photos" %}id="current"{% endifequal %}><a href="{% url pictures_view %}">Photos</a></li>
 				<li {% ifequal current "blog" %}id="current"{% endifequal %}><a href="#">Blog</a></li>
 				<li {% ifequal current "archive" %}id="current"{% endifequal %}><a href="{% url article_archive_view %}">Archive</a></li>
