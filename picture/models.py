@@ -8,6 +8,7 @@ class Picture(models.Model):
     is_visible = models.BooleanField(default=False)
     tags = TagField(help_text='Enter tags separated by ,')
     creation_date = models.DateTimeField(auto_now_add=True)
+    body = models.TextField()
 
     @models.permalink
     def get_absolute_url(self):

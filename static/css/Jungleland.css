@@ -563,6 +563,10 @@ input.button {
 	background: url(../images/feed-icon14.gif) no-repeat 0 center;
 	padding-left: 20px;
 }
+#footer-outer .footer-list ul li .linkedin {
+	background: url(../images/linkedin.gif) no-repeat 0 center;
+	padding-left: 20px;
+}
 #footer-outer .footer-list ul li .twitter {
 	background: url(../images/twitter.gif) no-repeat 0 center;
 	padding-left: 20px;

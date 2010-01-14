@@ -12,5 +12,10 @@
                     </p>
           {% thumbnail picture.file 560x1000 upscale as thumb %}
           <img src="{{ thumb }}" width="{{ thumb.width }}" height="{{ thumb.height }}"  alt="featured" />
+        <blockquote>
+        <p>
+        {{ picture.body }}
+        <p>
+        </blockquote>
     </div>
 {% endblock main %}
