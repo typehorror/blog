@@ -45,9 +45,8 @@ if(typeof jQuery == 'function'){
 				<li {% ifequal current "home" %}id="current"{% endifequal %}><a href="{% url homepage %}">Home</a></li>
 				<li {% ifequal current "tips" %}id="current"{% endifequal %}><a href="{% url tips_view %}">Tips</a></li>
 				<li {% ifequal current "photos" %}id="current"{% endifequal %}><a href="{% url pictures_view %}">Photos</a></li>
-				<li {% ifequal current "blog" %}id="current"{% endifequal %}><a href="#">Blog</a></li>
 				<li {% ifequal current "archive" %}id="current"{% endifequal %}><a href="{% url article_archive_view %}">Archive</a></li>
-				<li {% ifequal current "contact" %}id="current"{% endifequal %}><a href="#">Contact</a></li>
+				<li {% ifequal current "contact" %}id="current"{% endifequal %}><a href="{% url contact_view %}">Contact</a></li>
 				<li {% ifequal current "about" %}id="current"{% endifequal %}><a href="{% url about_me %}">About me</a></li>		
 			</ul>		
 		</div>		
@@ -57,7 +56,7 @@ if(typeof jQuery == 'function'){
 		<form id="quick-search" action="index.html" method="get" >
 			<p>
 			<label for="qsearch">Search:</label>
-			<input class="tbox" id="qsearch" type="text" name="qsearch" value="Search..." title="Start typing and hit ENTER" />
+			<input class="tbox" id="qsearch" type="text" name="qsearch" value="Search..." title="Start typing and hit ENTER" onblur="if(this.value == ''){this.value='Search...';}" onclick="if(this.value='Search...'){this.value='';}"/>
 			<input class="btn" alt="Search" type="image" name="searchsubmit" title="Search" src="{{ STATIC_URL}}images/search.png" />
 			</p>
 		</form>	
@@ -86,13 +85,12 @@ if(typeof jQuery == 'function'){
 				<div class="sidemenu">	
 					<h3>Sidebar Menu</h3>
 					<ul>				
-						<li><a href="index.html">Home</a></li>
-						<li><a href="index.html#TemplateInfo">TemplateInfo</a></li>
-						<li><a href="style.html">Style Demo</a></li>
-						<li><a href="blog.html">Blog</a></li>
-						<li><a href="archives.html">Archives</a></li>
-						<li><a href="http://www.styleshout.com/">More Free Templates</a></li>	
-						<li><a href="http://www.4templates.com/?aff=ealigam">Premium Templates</a></li>							
+                    <li><a href="{% url homepage %}">Home</a></li>
+                    <li><a href="{% url tips_view %}">Tips</a></li>
+                    <li><a href="{% url pictures_view %}">Photos</a></li>
+                    <li><a href="{% url article_archive_view %}">Archive</a></li>
+                    <li><a href="{% url contact_view %}">Contact</a></li>
+                    <li><a href="{% url about_me %}">About me</a></li>		
 					</ul>	
 				</div>
 							
@@ -139,22 +137,21 @@ if(typeof jQuery == 'function'){
 			<h3>Contact Info</h3>
 			
 			<p>
-			<strong>Phone: </strong>+1234567<br/>
-			<strong>Fax: </strong>+123456789
+			<strong>Phone: </strong>+818 919 8556<br/>
 			</p>
 			
-			<p><strong>Address: </strong>123 Put Your Address Here</p>
+			<p><strong>Address: </strong>91505 Burbank, CA</p>
 				
-			<p><strong>E-mail: </strong>me@jungleland.com</p>
-			<p>Want more info - go to our <a href="#">contact page</a></p>			
+			<p><strong>E-mail: </strong>bbrriiccee@gmail.com</p>
+			<p>Want more info - go to my <a href="{% url contact_view %}">contact page</a></p>			
 			
 			<h3>Follow Us</h3>
 			
 			<div class="footer-list">
 				<ul>				
-					<li><a href="index.html" class="rssfeed">RSS Feed</a></li>
-					<li><a href="index.html" class="email">Email</a></li>
-					<li><a href="index.html" class="twitter">Twitter</a></li>									
+					<!--li><a href="index.html" class="rssfeed">RSS Feed</a></li-->
+					<li><a href="mailto:bbrriiccee@gmail.com" class="email">Email</a></li>
+					<li><a href="http://twitter.com/briceleroyindex.html" class="twitter">Twitter</a></li>									
 				</ul>
 			</div>					
 				
@@ -166,13 +163,12 @@ if(typeof jQuery == 'function'){
 			
 			<div class="footer-list">
 				<ul>				
-					<li><a href="index.html">Home</a></li>
-					<li><a href="index.html">Style Demo</a></li>
-					<li><a href="index.html">Blog</a></li>
-					<li><a href="index.html">Archive</a></li>
-					<li><a href="index.html">About</a></li>		
-					<li><a href="index.html">Template Info</a></li>		
-					<li><a href="index.html">Site Map</a></li>					
+                    <li><a href="{% url homepage %}">Home</a></li>
+                    <li><a href="{% url tips_view %}">Tips</a></li>
+                    <li><a href="{% url pictures_view %}">Photos</a></li>
+                    <li><a href="{% url article_archive_view %}">Archive</a></li>
+                    <li><a href="{% url contact_view %}">Contact</a></li>
+                    <li><a href="{% url about_me %}">About me</a></li>		
 				</ul>
 			</div>					
 				
@@ -205,11 +201,12 @@ if(typeof jQuery == 'function'){
 			<h3>About</h3>			
 			
 			<p>
-			<a href="index.html"><img src="images/gravatar.jpg" width="40" height="40" alt="firefox" class="float-left" /></a>
-			Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. 
-			Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu 
-			posuere nunc justo tempus leo. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. 
-			Cras id urna. <a href="index.html">Learn more...</a>
+			<a href="index.html"><img src="http://www.gravatar.com/avatar/26b5a272f4f1854748e2a6fda356573a.png" width="60" height="60" alt="me" class="float-left" /></a>
+			I'm a python addict actually dedicated to web creation. I'm looking for 
+			challenges in software creation. I like to achieve tasks that first seem
+			impossible to overcome. I'm particularly preoccupied by code elegance and 
+			Quality Insurance. 
+			<a href="{% url about_me %}">Learn more...</a>
 			</p>			
 			
 		</div>		

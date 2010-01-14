@@ -803,3 +803,18 @@ p.thumbs {
     font-size: .9em;
     float: right;
 }
+
+form label{
+}
+
+form input[type=text], form textarea{
+    width: 470px;
+}
+
+form .errorlist li{
+    list-style-type: none;
+    color: red;
+    float: right;
+    font-weight: bold;
+    margin-top: 14px;
+}

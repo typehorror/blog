@@ -85,5 +85,6 @@ INSTALLED_APPS = (
     'article',
     'picture',
     'tip',
+    'contact',
 )
 

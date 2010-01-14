@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% load thumbnail %}
+{% load tagging_tags %}
+
+{% block main %}
+<div id="main">	
+    <h2>Contact</h2>
+    <form action="#" method="post">
+        {{ form.as_p }}
+        <p class="no-border">
+            <input class="button" type="submit" tabindex="5" value="Submit"/>
+            <input class="button" type="reset" tabindex="6" value="Reset"/>
+        </p>
+    </form>
+</div>
+{% endblock %}
