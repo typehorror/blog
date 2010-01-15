@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% load thumbnail %}
+{% load tagging_tags %}
+
+{% block main %}
+					<h2>{{ tip.title }}</h2>
+                            {% tags_for_object tip as tags %}
+                            
+
+							<div class="post-details" style="padding-left:20px;">Posted on <a href="#">{{ tip.modification_date|date:"F d, Y" }}</a> | Filed under {% for tag in tags %} <a href="#">{{tag}}</a> {% if not forloop.last %}, {% endif%}{% endfor %}</div>
+						    <p>
+						        {{ tip.body|safe }}
+						    </p>
+{% endblock %}

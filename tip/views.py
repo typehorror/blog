@@ -6,6 +6,15 @@ from common.utils import paginate
 from models import Tip
 
 
+def tip_view(request, tip_id):
+    """
+    show a list of picture
+    """
+    tip = get_object_or_404(Tip,pk=tip_id,is_visible=True)
+    context = {'tip': tip,
+               'current':'tips'}
+    return render_response(request, 'tip/tip_view.html', context)
+
 def tips_view(request):
     """
     show a list of picture
