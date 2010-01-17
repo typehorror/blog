@@ -17,7 +17,7 @@
 					<ul class="archive">
 					{% for tip in tips.object_list %}
 						<li {% cycle "" "style=\"background-color: #2F2018;\"" %}>
-							<div class="post-title"><strong style="color:white; font-size: 1.2em;">{{ tip.title }}.</strong></div>
+							<div class="post-title"><a href="{{ tip.get_absolute_url }}"><strong>{{ tip.title }}.</strong></a></div>
                             {% tags_for_object tip as tags %}
                             
 
