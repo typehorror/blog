@@ -822,3 +822,11 @@ form .errorlist li{
     font-weight: bold;
     margin-top: 14px;
 }
+
+h3.warning{
+    text-align: center;
+    padding: 5px; 
+    background-color:#E27304;
+    border: black 1px solid;
+    color: #FDBD7C;
+}
