@@ -18,7 +18,7 @@
 					<ul class="archive">
 					{% for article in articles.object_list %}
 						<li>
-							<div class="post-title"><strong><a href="{{ article.get_absolute_url }}">{{ article.title }}.</a></strong></div>
+							<div class="post-title"><strong><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></strong></div>
                             {% tags_for_object article as tags %}
                             
 
