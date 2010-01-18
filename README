@@ -22,3 +22,20 @@ available at (hg clone) https://sorl-thumbnail.googlecode.com/hg/
 django tagging:
 Tags your data to group them by theme.
 available at (svn checkout) http://django-tagging.googlecode.com/svn/trunk/
+
+License
+-------
+
+The website design is based on Erwin Aligam work (http://www.styleshout.com)
+and is distributed under the Creative Commons Attribution 2.5 License.
+This mean thatyou are free:
+- to copy, distribute, display, and perform the work
+- to make derivative works
+- to make commercial use of the work
+Under the following conditions:
+-  You must attribute the work in the manner specified by the author or licensor. (In this case, a link back to styleshout.com)
+- For any reuse or distribution, you must make clear to others the license terms of this work
+- Any of these conditions can be waived if you get permission from the copyright holder
+
+The engine (Python source code) is released under the GPL V3 available 
+at : http://www.gnu.org/licenses/gpl.html 
