@@ -12,6 +12,8 @@ TEMPLATE_DEBUG = DEBUG
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en-us'
 
+CACHE_BACKEND = 'memcached://127.0.0.1:11211/'
+
 SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
