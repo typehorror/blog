@@ -6,11 +6,11 @@
 {% block main %}
 					<h2>Tips</h2>
 					<div class="navigation clear">
-                    {% if tips.has_previous %}
-						<div><a href="?{{url_parameters}}&page={{ tips.previous_page_number }}" >Newer Tips &raquo;</a></div>
-			        {% endif %}
                     {% if tips.has_next %}
 						<div><a href="?{{url_parameters}}&page={{ tips.next_page_number }}" >&laquo; Older Tips </a></div>												
+			        {% endif %}
+                    {% if tips.has_previous %}
+						<div><a href="?{{url_parameters}}&page={{ tips.previous_page_number }}" >Newer Tips &raquo;</a></div>
 			        {% endif %}
 					</div>
 					
@@ -31,11 +31,11 @@
 					</ul>			
 					
 					<div class="navigation clear">						
-                    {% if tips.has_previous %}
-						<div><a href="?{{url_parameters}}&page={{ tips.previous_page_number }}" >Newer tips &raquo;</a></div>
-			        {% endif %}
                     {% if tips.has_next %}
 						<div><a href="?{{url_parameters}}&page={{ tips.next_page_number }}" >&laquo; Older tips </a></div>												
+			        {% endif %}
+                    {% if tips.has_previous %}
+						<div><a href="?{{url_parameters}}&page={{ tips.previous_page_number }}" >Newer tips &raquo;</a></div>
 			        {% endif %}
 					</div>		
 

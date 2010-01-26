@@ -7,11 +7,11 @@
 				<h2><a href="index.html">Archives for 2009</a></h2>
 					
 					<div class="navigation clear">
-                    {% if articles.has_previous %}
-						<div><a href="?{{url_parameters}}&page={{ articles.previous_page_number }}" >Newer Entries &raquo;</a></div>
-			        {% endif %}
                     {% if articles.has_next %}
 						<div><a href="?{{url_parameters}}&page={{ articles.next_page_number }}" >&laquo; Older Entries </a></div>												
+			        {% endif %}
+                    {% if articles.has_previous %}
+						<div><a href="?{{url_parameters}}&page={{ articles.previous_page_number }}" >Newer Entries &raquo;</a></div>
 			        {% endif %}
 					</div>
 					
@@ -25,45 +25,14 @@
 							<div class="post-details">Posted on <a href="{{ article.get_absolute_url }}">{{ article.modification_date|date:"F d, Y" }}</a> | Filed under {% for tag in tags %} <a href="#">{{tag}}</a> {% if not forloop.last %}, {% endif%}{% endfor %}</div>
 						</li>
 				    {% endfor %}
-				    {% comment %}
-						<li>
-							<div class="post-title"><strong><a href="index.html">Lorem ipsum dolor sit amet.</a></strong></div>
-							<div class="post-details">Posted on <a href="index.html">August 25, 2009</a> | Filed under <a href="index.html">templates</a></div>
-						</li>
-						<li>
-							<div class="post-title"><strong><a href="index.html">In tristique orci porttitor ipsum.</a></strong></div>
-							<div class="post-details">Posted on <a href="index.html">August 20, 2009</a> | Filed under <a href="index.html">templates</a>, <a href="index.html">design</a></div>
-						</li>
-						<li>
-							<div class="post-title"><strong><a href="index.html">Donec libero. Suspendisse bibendum.</a></strong></div>
-							<div class="post-details">Posted on <a href="index.html">August 20, 2009</a> | Filed under <a href="index.html">templates</a>, <a href="index.html">design</a></div>
-						</li>
-						<li>
-							<div class="post-title"><strong><a href="index.html">Suspendisse bibendum.</a></strong></div>
-							<div class="post-details">Posted on <a href="index.html">August 20, 2009</a> | Filed under <a href="index.html">templates</a>, <a href="index.html">internet</a></div>
-						</li>
-						<li>
-							<div class="post-title"><strong><a href="index.html">Lorem ipsum dolor sit amet.</a></strong></div>
-							<div class="post-details">Posted on <a href="index.html">July 28, 2009</a> | Filed under <a href="index.html">templates</a></div>
-						</li>
-						<li>
-							<div class="post-title"><strong><a href="index.html">In tristique orci porttitor ipsum.</a></strong></div>
-							<div class="post-details">Posted on <a href="index.html">July 25, 2009</a> | Filed under <a href="index.html">templates</a>, <a href="index.html">design</a></div>
-						</li>
-						<li>
-							<div class="post-title"><strong><a href="index.html">Donec mattis, purus nec placerat bibendum.</a></strong></div>
-							<div class="post-details">Posted on <a href="index.html">July 23, 2009</a> | Filed under <a href="index.html">templates</a>, <a href="index.html">design</a></div>
-						</li>
-				    {% endcomment %}
-						
 					</ul>			
 					
 					<div class="navigation clear">						
-                    {% if articles.has_previous %}
-						<div><a href="?{{url_parameters}}&page={{ articles.previous_page_number }}" >Newer Entries &raquo;</a></div>
-			        {% endif %}
                     {% if articles.has_next %}
 						<div><a href="?{{url_parameters}}&page={{ articles.next_page_number }}" >&laquo; Older Entries </a></div>												
+			        {% endif %}
+                    {% if articles.has_previous %}
+						<div><a href="?{{url_parameters}}&page={{ articles.previous_page_number }}" >Newer Entries &raquo;</a></div>
 			        {% endif %}
 					</div>		
 
