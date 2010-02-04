@@ -8,4 +8,5 @@ class Contact(models.Model):
     subject = models.CharField(max_length=55)
     email_address = models.EmailField()
     body = models.TextField()
+    is_read = models.BooleanField(default=False)
     creation_date = models.DateTimeField(auto_now_add=True)

@@ -6,6 +6,11 @@
 {% block main %}
 <div id="main">	
     <h2>Contact</h2>
+    {% if user.is_staff %}
+        <p class="post-info">You have {{ unread }} unread message{{ unread|pluralize }}
+        | <a href="{% url admin:contact_contact_changelist %}" class="edit">View</a> 
+        {% endif %}
+    </p>
     <form action="#" method="post">
         {{ form.as_p }}
         <p class="no-border">

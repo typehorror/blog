@@ -18,6 +18,9 @@
         <a href="#">{{tag}}</a> 
         {% if not forloop.last %}, {% endif%}
     {% endfor %}
+    {% if user.is_staff %}
+        | <a href="{% url admin:tip_tip_change tip.id %}" class="edit">Edit</a> 
+    {% endif %}
 </div>
 <p>
     {{ tip.body|safe }}

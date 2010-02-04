@@ -22,6 +22,7 @@ def contact_view(request):
             context['form']=form
     else:
         context['form']=ContactForm()
+    context['unread'] = Contact.objects.filter(is_read=False).count()
     return render_response(request, 'contact/contact_view.html', context)
 
 def contact_message_sent_view(request):

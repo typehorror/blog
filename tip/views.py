@@ -25,7 +25,7 @@ def tips_view(request):
     show a list of picture
     """
     tips = Tip.objects.filter(is_visible=True).order_by("-creation_date")
-    tips = paginate(tips, request, 4)
+    tips = paginate(tips, request, 3)
     context = {'tips': tips,
                'current':'tips'}
     return render_response(request, 'tip/tips_view.html', context)

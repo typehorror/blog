@@ -55,7 +55,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'djangodblog.middleware.DBLogMiddleware',
+    #'djangodblog.middleware.DBLogMiddleware',
 )
 
 ROOT_URLCONF = 'urls'
@@ -79,7 +79,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.admindocs',
-    'djangodblog',
+    #'djangodblog',
     'sorl.thumbnail',
     'common',
     'mailer',
