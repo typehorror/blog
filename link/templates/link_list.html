@@ -26,10 +26,10 @@
     </ul>
     <div class="navigation">
     {% if link_list.has_next %}
-        <div><a href="?page={{ link_list.next_page_number }}" >&laquo; Next Entries </a></div>												
+        <div><a href="?page={{ link_list.next_page_number }}" >&laquo; Next Links </a></div>
     {% endif %}
     {%if link_list.has_previous %}
-        <div><a href="?page={{ link_list.previous_page_number }}" >Previous Entries &raquo;</a></div>
+        <div><a href="?page={{ link_list.previous_page_number }}" >Previous Links &raquo;</a></div>
     {% endif %}
     </div>
 </div>
