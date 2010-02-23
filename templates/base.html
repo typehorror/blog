@@ -45,6 +45,7 @@ if(typeof jQuery == 'function'){
 				<li {% ifequal current "home" %}id="current"{% endifequal %}><a href="{% url homepage %}">Home</a></li>
 				<li {% ifequal current "tips" %}id="current"{% endifequal %}><a href="{% url tips_view %}">Tips</a></li>
 				<li {% ifequal current "photos" %}id="current"{% endifequal %}><a href="{% url pictures_view %}">Photos</a></li>
+				<li {% ifequal current "link" %}id="current"{% endifequal %}><a href="{% url link_link_list %}">Links</a></li>		
 				<li {% ifequal current "archive" %}id="current"{% endifequal %}><a href="{% url article_archive_view %}">Archive</a></li>
 				<li {% ifequal current "contact" %}id="current"{% endifequal %}><a href="{% url contact_view %}">Contact</a></li>
 				<li {% ifequal current "about" %}id="current"{% endifequal %}><a href="{% url about_me %}">About me</a></li>		
@@ -177,11 +178,21 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 			
 			<div class="footer-list">
 				<ul>				
-                    <li><a href="http://dev.kaaloo.com" target="_blank">Kaaloo</a></li>
+                    <li><a href="http://alpha.kaaloo.com" target="_blank">Kaaloo</a></li>
                     <li><a href="http://dev.betelnutz.com" target="_blank">Betelnutz</a></li>
+                    <li><a href="http://alpha.djangogenerator.com" target="_blank">DjangoGenerator</a></li>
                     <li><a href="http://github.com/debrice" target="_blank">My Github</a></li>
 				</ul>
 			</div>					
+			<h3>Web Resource</h3>
+			
+			<div class="footer-list">
+				<ul>				
+					<li><a href="http://blog.2theleft.la/" target="_blank">Kevin's blog</a></li>
+					<li><a href="http://www.styleshout.com/" target="_blank">StyleShout Templates</a></li>	
+					<li><a href="http://www.etsy.com/" target="_blank">Etsy</a></li>	
+				</ul>
+			</div>			
 		</div>
 		
 		<div class="col-a">
@@ -196,25 +207,6 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
         <script type="text/javascript"
         src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
         </script>
-            {% comment %}
-			<h3>Web Resource</h3>
-			
-			<p>Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu 
-			posuere nunc justo tempus leo. </p>
-			
-			<div class="footer-list">
-				<ul>				
-					<li><a href="http://net.tutsplus.com/">NetTuts</a></li>
-					<li><a href="http://www.smashingmagazine.com/">Smashing Magazine</a></li>
-					<li><a href="http://psd.tutsplus.com/">PSDTuts</a></li>
-					<li><a href="http://www.tutorial9.net/">Tutorial9</a></li>
-					<li><a href="http://www.webdesignerwall.com/">Web Designer Wall</a></li>		
-					<li><a href="http://bestwebgallery.com/">Best Web Gallery</a></li>		
-					<li><a href="http://webcreme.com/">Web Creme</a></li>	
-					<li><a href="http://cssmania.com/">CSS Mania</a></li>	
-				</ul>
-			</div>			
-			{% endcomment %}	
 		</div>		
 	
 		<div class="col-b">

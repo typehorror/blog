@@ -89,6 +89,7 @@ INSTALLED_APPS = (
     'tip',
     'contact',
     'gravatar',
+    'link',
     'django_extensions',
 )
 

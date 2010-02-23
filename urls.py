@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     (r'^picture/', include('picture.urls')),
     (r'^tip/', include('tip.urls')),
     (r'^contact/', include('contact.urls')),
+    (r'^link/', include('link.urls')),
 
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
     # to INSTALLED_APPS to enable admin documentation:

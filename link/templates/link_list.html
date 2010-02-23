@@ -1,0 +1,36 @@
+{%extends "link_base.html" %}
+{% load thumbnail %}
+{% load tagging_tags %}
+{% block main %}
+<div>
+    <div class="navigation clear">
+    {% if link_list.has_next %}
+        <div><a href="?page={{ link_list.next_page_number }}" >&laquo; Next Links </a></div>												
+    {% endif %}
+    {%if link_list.has_previous %}
+        <div><a href="?page={{ link_list.previous_page_number }}" >Previous Links &raquo;</a></div>
+    {% endif %}
+    </div>
+    <ul class="archive">
+        {% for link in link_list.object_list %}
+        <li style="height:102px;">
+            <a href="{{ link.link }}" about="_blank">
+                <img src="{% thumbnail link.logo 80x80 crop upscale %}" style="float: left; margin-right: 10px"/>
+            </a>
+            <div class="post-title"><strong><a href="{{ link.link }}" about="_blank">{{ link.title }}</a></strong></div>
+            {% tags_for_object link as tags %}
+            <div class="post-details">Posted on {{ link.creation_date|date:"F d, Y" }} | Filed under {% for tag in tags %} <a href="#">{{tag}}</a> {% if not forloop.last %}, {% endif%}{% endfor %}</div>
+            <p>{{ link.description }} <a href="{{ link.link }}" about="_blank"> veni vidi vinci... </a></p>
+        </li>
+        {% endfor %}
+    </ul>
+    <div class="navigation">
+    {% if link_list.has_next %}
+        <div><a href="?page={{ link_list.next_page_number }}" >&laquo; Next Entries </a></div>												
+    {% endif %}
+    {%if link_list.has_previous %}
+        <div><a href="?page={{ link_list.previous_page_number }}" >Previous Entries &raquo;</a></div>
+    {% endif %}
+    </div>
+</div>
+{% endblock main %}
