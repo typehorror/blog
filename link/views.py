@@ -9,7 +9,7 @@ def list_link(request):
     """
     Display a list of Link paginated
     """
-    link_list = Link.objects.filter(is_visible=True)
+    link_list = Link.objects.filter(is_visible=True).order_by('-creation_date')
     paginator = Paginator(link_list, 5)
 
     try:
