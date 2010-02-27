@@ -23,7 +23,7 @@
 
 							<div class="post-details">Posted on <a href="#">{{ tip.modification_date|date:"F d, Y" }}</a> | Filed under {% for tag in tags %} <a href="#">{{tag}}</a> {% if not forloop.last %}, {% endif%}{% endfor %}</div>
 						    <p>
-						        {{ tip.body|safe }}
+						        {{ tip.body|safe|truncatewords_html:30 }}
 						    </p>
 						</li>
 				    {% endfor %}
