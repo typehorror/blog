@@ -15,4 +15,4 @@ class Picture(models.Model):
         return ('picture.views.picture_view', [self.pk])
 
     def __unicode__(self):
-        return u'%s' % self.title
+        return u'Picture %s' % self.title

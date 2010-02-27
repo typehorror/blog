@@ -11,6 +11,9 @@ urlpatterns = patterns('',
     (r'^contact/', include('contact.urls')),
     (r'^link/', include('link.urls')),
 
+    # add haystack search engine 
+    (r'^search/', include('haystack.urls')),
+
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
     # to INSTALLED_APPS to enable admin documentation:
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),

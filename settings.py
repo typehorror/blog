@@ -72,6 +72,10 @@ TEMPLATE_DIRS = (
 # Result: MEDIA_ROOT + 'thumbs/photos/1_jpg_150x150_q85.jpg'
 THUMBNAIL_BASEDIR = 'thumbs'
 
+HAYSTACK_SITECONF = 'search_sites'
+HAYSTACK_SEARCH_ENGINE = 'whoosh'
+HAYSTACK_WHOOSH_PATH = '/home/brice/blog/blog_index'
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -91,5 +95,6 @@ INSTALLED_APPS = (
     'gravatar',
     'link',
     'django_extensions',
+    'haystack',
 )
 

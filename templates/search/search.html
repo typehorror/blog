@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block css %}
+{{ block.super }}
+<style type="text/css" >
+    .archive p{
+        color:gray;
+        padding: 0;
+        margin: 0;
+    }
+</style>
+{% endblock css %}
+
+{% block main %}
+    <h2>Search</h2>
+
+    <form method="get" action=".">
+        {{ form.as_p }}
+        <p>
+            <input type="submit" value="Search">
+        </p>
+    </form>
+
+        {% if query %}
+            <h3>Results</h3>
+
+            <ul class="archive">
+            {% for result in page.object_list %}
+                <li>
+                    <a href="{{ result.object.get_absolute_url }}">{{ result.object.title }}</a>
+                    <div style="display:block;font-size: .9em; color:#bbb; margin-left: 20px">
+                    {% if result.object.body %}
+                    {{ result.object.body|safe|truncatewords_html:10 }}
+                    {% endif %}
+                    </div>
+                </li>
+            {% empty %}
+                <li>No results found.</li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            {# Show some example queries to run, maybe query syntax, something else? #}
+        {% endif %}
+    <script type="text/javascript">
+        document.getElementById('id_q').focus();
+    </script>
+{% endblock %}

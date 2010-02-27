@@ -15,6 +15,8 @@
 
 <link rel="stylesheet" type="text/css" media="screen" href="{{ STATIC_URL}}css/screen.css" />
 <!--[if IE 6]><link rel="stylesheet" type="text/css" href="{{ STATIC_URL}}css/ie6.css" media="screen" /><![endif]-->
+{% block css %}
+{% endblock css %}
 
 <script type="text/javascript">
 if(typeof jQuery == 'function'){
@@ -54,10 +56,14 @@ if(typeof jQuery == 'function'){
 		
 		<!--p id="rss-feed"><a href="index.html" class="feed">Grab the RSS FEEd</a></p-->	
 		
-		<form id="quick-search" action="index.html" method="get" >
+		<form id="quick-search" action="/search/" method="get" >
 			<p>
 			<label for="qsearch">Search:</label>
-			<input class="tbox" id="qsearch" type="text" name="qsearch" value="Search..." title="Start typing and hit ENTER" onblur="if(this.value == ''){this.value='Search...';}" onclick="if(this.value='Search...'){this.value='';}"/>
+            <input type="hidden" value="article.article" name="models" />
+            <input type="hidden" value="link.link" name="models" />
+            <input type="hidden" value="picture.picture" name="models" />
+            <input type="hidden" value="tip.tip" name="models" />
+			<input class="tbox" id="qsearch" type="text" name="q" value="Search..." title="Start typing and hit ENTER" onblur="if(this.value == ''){this.value='Search...';}" onclick="if(this.value='Search...'){this.value='';}"/>
 			<input class="btn" alt="Search" type="image" name="searchsubmit" title="Search" src="{{ STATIC_URL}}images/search.png" />
 			</p>
 		</form>	

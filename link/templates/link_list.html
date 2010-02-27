@@ -14,13 +14,13 @@
     <ul class="archive">
         {% for link in link_list.object_list %}
         <li style="height:102px;">
-            <a href="{{ link.link }}" about="_blank">
+            <a href="{{ link.link }}" target="_blank">
                 <img src="{% thumbnail link.logo 80x80 crop upscale %}" style="float: left; margin-right: 10px"/>
             </a>
-            <div class="post-title"><strong><a href="{{ link.link }}" about="_blank">{{ link.title }}</a></strong></div>
+            <div class="post-title"><strong><a href="{{ link.link }}" target="_blank">{{ link.title }}</a></strong></div>
             {% tags_for_object link as tags %}
             <div class="post-details">Posted on {{ link.creation_date|date:"F d, Y" }} | Filed under {% for tag in tags %} <a href="#">{{tag}}</a> {% if not forloop.last %}, {% endif%}{% endfor %}</div>
-            <p>{{ link.description }} <a href="{{ link.link }}" about="_blank"> veni vidi vinci... </a></p>
+            <p>{{ link.description }} <a href="{{ link.link }}" target="_blank"> veni vidi vinci... </a></p>
         </li>
         {% endfor %}
     </ul>

@@ -16,4 +16,9 @@ interresting content thru the web
     link = models.URLField(max_length=200, verify_exists=1)
     tags = TagField(help_text='Enter tags separated by ,')
 
+    @property
+    def body(self):
+        return self.description
 
+    def get_absolute_url(self):
+        return self.link
