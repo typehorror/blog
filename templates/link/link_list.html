@@ -1,6 +1,9 @@
-{%extends "link_base.html" %}
+{%extends "link/link_base.html" %}
 {% load thumbnail %}
 {% load tagging_tags %}
+
+{% block title %}{{block.super}}: Links{% endblock title %}
+
 {% block main %}
 <div>
     <div class="navigation clear">

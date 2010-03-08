@@ -3,6 +3,8 @@
 {% load thumbnail %}
 {% load tagging_tags %}
 
+{% block title%}{{ picture.title }}{% endblock title %}
+
 {% block main %}
     <div class="post">
         <h2>{{ picture.title }}</h2>

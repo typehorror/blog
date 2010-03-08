@@ -3,6 +3,8 @@
 {% load thumbnail %}
 {% load tagging_tags %}
 
+{% block title%}{{ tip.title }}{% endblock title %}
+
 {% block main %}
 {% if not tip.is_visible %}<h3 class="warning">This tip is not visible</h3>{% endif %}
 <h2>{{ tip.title }}</h2>

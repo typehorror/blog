@@ -3,8 +3,10 @@
 {% load thumbnail %}
 {% load tagging_tags %}
 
+{% block title%}{{ block.super }}: Archives{% endblock title %}
+
 {% block main %}
-				<h2><a href="index.html">Archives for 2009</a></h2>
+				<h2><a href="index.html">Articles Archives</a></h2>
 					
 					<div class="navigation clear">
                     {% if articles.has_next %}

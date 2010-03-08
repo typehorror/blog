@@ -25,7 +25,7 @@ def list_link(request):
 
     context = {'link_list': link_list,
                'current': 'link'}
-    return render_to_response('link_list.html',
+    return render_to_response('link/link_list.html',
                               context,
                               context_instance=RequestContext(request))
 
