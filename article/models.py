@@ -1,6 +1,8 @@
 from django.db import models
 from tagging.fields import TagField
 
+from django.db.models.signals import post_save
+
 from django.contrib.auth.models import User
 
 REPORT_CHOICES = (
@@ -58,3 +60,19 @@ class Comment(models.Model):
     creation_date = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=20, choices=REPORT_CHOICES, default='na')
 
+def new_comment(sender, instance, **kwargs):
+    from django.core.mail import send_mail
+    from django.conf import settings
+    from django.core.urlresolvers import reverse
+
+    from django.contrib.sites.models import Site
+
+    current_site = Site.objects.get_current()
+    change_url = reverse('admin:article_comment_change', args=(instance.id,))
+    send_mail('New comment on the website',
+              'Please check the website at http://%s/%s' % (current_site.domain, change_url),
+              'noreply@debrice.com',
+              [ email for name, email in settings.MANAGERS])
+ 
+
+post_save.connect(new_comment, sender=Comment)

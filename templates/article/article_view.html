@@ -43,7 +43,8 @@
 					<a name="comments" />
 					<ol class="commentlist">
 					{% for comment in article.comments.all %}
-						<li class="depth-1">	
+						<li class="depth-1">
+                            <a name="comment_{{comment.id}}" />
 							<div class="comment-info">	
 								<img alt="" src="{% gravatar_for_email comment.email_address 40 %}" class="avatar" height="40" width="40" />																																					
 								<cite>										

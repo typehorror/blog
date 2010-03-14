@@ -47,7 +47,7 @@ def article_view(request, article_id):
             comment = form.save(commit=False)
             comment.article = article
             comment.save()
-            return HttpResponseRedirect(reverse('article_view', args=[article.id,]))
+            return HttpResponseRedirect('%s#comment_%d' % (reverse('article_view', args=[article.id,]), comment.id))
         else:
             context['form']=form
     else:

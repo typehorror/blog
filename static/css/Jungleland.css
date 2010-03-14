@@ -652,7 +652,7 @@ ol.commentlist {
 .commentlist li {
 	list-style: none;
 	margin: 0;
-	padding: 15px 0 0 0;		 
+	padding: 15px 0 0 5px;		 
 	border-bottom: 1px solid #251a14;	
 }
 .commentlist li .comment-info {	
