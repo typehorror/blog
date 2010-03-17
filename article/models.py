@@ -70,7 +70,7 @@ def new_comment(sender, instance, **kwargs):
     current_site = Site.objects.get_current()
     change_url = reverse('admin:article_comment_change', args=(instance.id,))
     send_mail('New comment on the website',
-              'Please check the website at http://%s/%s' % (current_site.domain, change_url),
+              'Please check the website at http://%s%s' % (current_site.domain, change_url),
               'noreply@debrice.com',
               [ email for name, email in settings.MANAGERS])
  

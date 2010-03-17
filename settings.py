@@ -96,5 +96,6 @@ INSTALLED_APPS = (
     'link',
     'django_extensions',
     'haystack',
+    'captcha',
 )
 

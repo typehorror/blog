@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     (r'^tip/', include('tip.urls')),
     (r'^contact/', include('contact.urls')),
     (r'^link/', include('link.urls')),
+    (r'^captcha/', include('captcha.urls')),
 
     # add haystack search engine 
     (r'^search/', include('haystack.urls')),
